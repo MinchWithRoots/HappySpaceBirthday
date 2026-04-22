@@ -12,5 +12,5 @@
 - **Smooth Scroll:** Lenis
 
 ## Запуск
-1. Откройте файл `index.html` в браузере.
-2. Для корректной работы локальных путей рекомендуется использовать локальный сервер (например, расширение Live Server в VS Code).
+1. Откройте https://minchwithroots.github.io/HappySpaceBirthday/
+2. Наслаждайтесь :D
