@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Галактика твоего дня</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Анимация звезд (фон) -->
+    <div class="stars-wrapper">
+      <div class="stars"></div>
+    </div>
+
+    <!-- Заставка -->
+    <section class="hero">
+      <h1>
+        <img src="img/planet.gif" class="planet-icon" alt="Planet" />
+        Галактика твоего дня
+      </h1>
+      <p>Прокрути вниз, чтобы увидеть</p>
+      <div class="scroll-arrow">↓</div>
+    </section>
+
+    <!-- Секция скролла -->
+    <div class="scroll-stage">
+      <div class="stage-inner">
+        <!-- Картинка -->
+        <img
+          src="img/galaxy.jpg"
+          alt="NGC 3982"
+          class="galaxy-img"
+          onerror="this.src='https://science.nasa.gov/wp-content/uploads/2023/08/ngc3982-hubble.jpg'"
+        />
+
+        <!-- Текст -->
+        <div class="text-group">
+          <h2 class="date">7 мая</h2>
+          <p class="caption">В твой день рождения был сделан этот снимок</p>
+
+          <div class="description">
+            <h3>NGC 3982</h3>
+            <p>
+              Спиральная галактика, повёрнутая к нам лицом. Её рукава украшены
+              розовыми областями звездообразования, голубыми скоплениями молодых
+              звёзд и тёмными полосами пыли. Простирается на 30 000 световых
+              лет.
+            </p>
+            <button id="share-btn" class="share-btn">Поделиться 📤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="end-screen">
+      <p>🌌 Космос ждёт тебя</p>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
