@@ -10,26 +10,24 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
-    <!-- Анимация звезд (фон) -->
     <div class="stars-wrapper">
       <div class="stars"></div>
     </div>
 
-    <!-- Заставка -->
     <section class="hero">
       <h1>
-        <img src="img/planet.gif" class="planet-icon" alt="Planet" />
-        Галактика твоего дня
+        <img src="img/planet.gif" class="icon-gif" alt="" /> Галактика твоего
+        дня
       </h1>
       <p>Прокрути вниз, чтобы увидеть</p>
       <div class="scroll-arrow">↓</div>
     </section>
 
-    <!-- Секция скролла -->
+    <!-- 🔑 Pinned-сцена с анимацией -->
     <div class="scroll-stage">
       <div class="stage-inner">
-        <!-- Картинка -->
         <img
           src="img/galaxy.jpg"
           alt="NGC 3982"
@@ -37,11 +35,9 @@
           onerror="this.src='https://science.nasa.gov/wp-content/uploads/2023/08/ngc3982-hubble.jpg'"
         />
 
-        <!-- Текст -->
-        <div class="text-group">
+        <div class="text-overlay">
           <h2 class="date">7 мая</h2>
           <p class="caption">В твой день рождения был сделан этот снимок</p>
-
           <div class="description">
             <h3>NGC 3982</h3>
             <p>
@@ -50,18 +46,37 @@
               звёзд и тёмными полосами пыли. Простирается на 30 000 световых
               лет.
             </p>
-            <button id="share-btn" class="share-btn">Поделиться 📤</button>
+            <button id="share-btn" class="share-btn">Поделиться</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Футер -->
+    <!-- Обычный скролл ниже -->
+    <section class="message-section">
+      <div class="message-content">
+        <h2 class="message-title">
+          <img src="img/planet.gif" class="icon-gif small" alt="" /> Твоя
+          вселенная
+        </h2>
+        <div
+          class="message-text"
+          data-text="Сегодняшний день особенный не только потому, что ты появилась на свет, но и потому, что где-то далеко во Вселенной в этот же день была запечатлена удивительная галактика — словно напоминание о том, насколько ты сама невероятна.
+
+Космос огромен и полон загадок, и каждая галактика в нём существует по своим законам, со своей структурой и ритмом. В тебе тоже есть эта самостоятельность, глубина и внутренняя логика, которые делают тебя особенной.
+
+Пусть впереди будет много новых «открытий» — идей, мест и впечатлений. И пусть твоя собственная вселенная продолжает расширяться, оставаясь такой же интересной и неповторимой."
+        ></div>
+      </div>
+    </section>
+
     <footer class="end-screen">
-      <p>🌌 Космос ждёт тебя</p>
+      <p>
+        <img src="img/planet.gif" class="icon-gif small" alt="" /> Космос ждёт
+        тебя
+      </p>
     </footer>
 
-    <!-- Скрипты -->
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>

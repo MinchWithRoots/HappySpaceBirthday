@@ -9,15 +9,23 @@
   box-sizing: border-box;
 }
 
+html,
 body {
-  font-family: "Montserrat", sans-serif;
+  height: auto;
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #030409 0%,
+    #070a10 40%,
+    #1a1a2e 70%,
+    #292d35 100%
+  );
   color: var(--text-primary);
+  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
-  /* 🔑 Темный фон как раньше (Ink Black / Jet Black) */
-  background: linear-gradient(180deg, #030409 0%, #070a10 40%, #292d35 100%);
 }
 
-/* === АНИМАЦИЯ ЗВЕЗД === */
+/* Звёзды */
 .stars-wrapper {
   position: fixed;
   top: 0;
@@ -28,14 +36,13 @@ body {
   overflow: hidden;
   pointer-events: none;
 }
-
 .stars {
   position: absolute;
   top: 50%;
   left: 50%;
   height: 1px;
   width: 1px;
-  background-color: #fff;
+  background: #fff;
   border-radius: 50%;
   box-shadow: -42vw -4vh 0px 0px #fff, 25vw -41vh 0px 0px #fff,
     -20vw 49vh 0px 1px #fff, 5vw 40vh 1px 1px #fff, 29vw 19vh 1px 0px #fff,
@@ -68,7 +75,6 @@ body {
     -8vw -10vh 1px 1px #fff;
   animation: zoom 60s alternate infinite;
 }
-
 @keyframes zoom {
   0% {
     transform: scale(1);
@@ -80,7 +86,7 @@ body {
   }
 }
 
-/* === КОНТЕНТ === */
+/* Hero & Footer */
 .hero,
 .end-screen {
   height: 100vh;
@@ -90,7 +96,6 @@ body {
   justify-content: center;
   text-align: center;
 }
-
 .hero h1 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
@@ -100,7 +105,6 @@ body {
   font-size: 2rem;
   animation: bounce 2s infinite;
 }
-
 @keyframes bounce {
   0%,
   100% {
@@ -113,9 +117,26 @@ body {
   }
 }
 
-/* Сцена скролла */
+.icon-gif {
+  width: 1.4em;
+  height: 1.4em;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 8px;
+}
+.icon-gif.small {
+  width: 1.1em;
+  height: 1.1em;
+}
+.icon-gif.tiny {
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 5px;
+}
+
+/* 🔑 Pinned Stage */
 .scroll-stage {
-  height: 250vh;
+  height: 400vh;
   position: relative;
 }
 
@@ -125,43 +146,32 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: sticky;
-  top: 0;
+  position: relative;
   overflow: hidden;
 }
 
-/* 🔑 КАРТИНКА (Тень и Скругления) */
 .galaxy-img {
-  object-fit: contain;
-  max-width: 90vw;
+  position: absolute;
+  max-width: 85vw;
   max-height: 85vh;
   width: auto;
   height: auto;
-  display: block;
-  position: relative;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
   z-index: 1;
-
-  /* Новые стили */
-  border-radius: 24px; /* Скругленные углы */
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); /* Глубокая тень */
 }
 
-/* Текст */
-.text-group {
+.text-overlay {
   position: absolute;
   z-index: 2;
   text-align: center;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(40px);
-  width: 100%;
-  max-width: 1100px;
+  max-width: 500px;
+  width: 90%;
 }
 
 .date {
-  font-size: clamp(3rem, 10vw, 7rem);
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 700;
-  line-height: 1;
   margin-bottom: 10px;
   background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
   -webkit-background-clip: text;
@@ -169,25 +179,21 @@ body {
 }
 
 .caption {
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .description {
-  max-width: 420px;
-  margin: 0 auto;
-  text-align: left;
-  opacity: 0;
-  transform: translateY(20px);
-  background: rgba(3, 4, 9, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(12px);
   padding: 25px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  pointer-events: auto;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: left;
+  margin-top: 10px;
 }
 
 .description h3 {
@@ -197,45 +203,115 @@ body {
 .description p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #ccc;
+  color: #ddd;
   margin-bottom: 20px;
 }
 
 .share-btn {
   padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   color: white;
   cursor: pointer;
   font-family: inherit;
   transition: 0.3s;
 }
-
 .share-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 🔑 Секция поздравления (с отступом) */
+.message-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 40px;
+  position: relative;
+  margin-top: 35vh; /* 🔑 Явный воздушный зазор после pinned-сцены */
+}
+
+.message-content {
+  max-width: 800px;
+  width: 100%;
+  /* Начальное состояние для анимации появления */
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.message-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #fff 0%, #7e6a7b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.message-text {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #b0b0b0;
+  white-space: pre-wrap;
+}
+
+.typing-cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+  color: #7e6a7b;
+}
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Адаптив */
 @media (max-width: 768px) {
   .scroll-stage {
-    height: 200vh;
+    height: 300vh;
   }
   .galaxy-img {
-    max-width: 95vw;
+    max-width: 90vw;
     max-height: 50vh;
-    border-radius: 16px;
   }
-  .description {
-    max-width: 90%;
-    padding: 20px;
+  .message-section {
+    padding: 80px 20px;
+    margin-top: 20vh;
+  }
+  .message-text {
+    font-size: 1rem;
+    padding: 25px;
   }
 }
 
-.planet-icon {
-  width: 1.4em; /* Размер чуть больше шрифта (эмодзи обычно ~1em) */
-  height: 1.4em;
-  vertical-align: middle; /* Выравнивание по центру строки */
-  display: inline-block;
-  margin-right: 8px; /* Отступ от текста */
+@media (max-width: 768px) {
+  .scroll-stage {
+    height: 300vh;
+  }
+  .galaxy-img {
+    max-width: 90vw;
+    max-height: 50vh;
+  }
+
+  .message-section {
+    padding: 80px 20px;
+    margin-top: 45vh; /* 🔑 Увеличили отступ для мобильных */
+  }
+
+  .message-text {
+    font-size: 1rem;
+    padding: 25px;
+  }
 }
